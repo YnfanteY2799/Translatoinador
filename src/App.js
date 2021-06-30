@@ -1,16 +1,9 @@
-import React from 'react';
-import './css/App.css';
-import { Sidebar } from "../src/components/Sidebar.jsx";
-
+import HomeView from "./components/HomeView";
 
 function App() {
   return (
-    <div className="App">
-      <Sidebar 
-        name="Translateitor"
-      />
-
-
+    <div>
+      <HomeView/>
     </div>
   );
 }
