@@ -1,20 +1,19 @@
 import {Link} from 'react-router-dom';
 import { useState } from 'react';
 
-const NavBarOptions = ({renderingOpts}) => renderingOpts.map((x,k) =>
+const NavBarOptions = ({renderingOpts}) => renderingOpts.map(({name, link},k) =>
     <li className="nav-item" key={k}>
-        <Link className="nav-link" >{x.name}</Link>
+        <Link className="nav-link" to={link} >{name}</Link>
     </li>
 );
 
-const Navbar = ({name = "Translation", Logo, options = [], }) => {
+const Navbar = ({name = "Translation", Logo, options = [], where}) => {
     
     const [mobileUser, setMobilUser] = useState(false);
     
-    
     return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a className="navbar-brand mb-0 h1" href="#/" style={{paddingLeft:10}}>{name}</a>
+        <Link className="navbar-brand mb-0 h1" to={where} style={{paddingLeft:10}}>{name}</Link>
 
         <div className={`collapse navbar-collapse ${mobileUser ? "show" : ""}`} id="navsc">
             <ul className="navbar-nav mr-auto">

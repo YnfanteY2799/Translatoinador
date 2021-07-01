@@ -4,9 +4,10 @@ const HomePage = () =>{
 
 
     return(
-        <div className="bg-secondary">
-
-
+        <div >  
+            
+            Home
+        
         </div>
     );
 }
