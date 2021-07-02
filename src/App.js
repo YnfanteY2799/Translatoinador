@@ -1,4 +1,5 @@
 import HomeView from "./components/HomeView";
+import "./css/App.css";
 
 function App() {
   return (

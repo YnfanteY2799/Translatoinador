@@ -1,9 +1,9 @@
 import {Link} from 'react-router-dom';
 import { useState } from 'react';
 
-const NavBarOptions = ({renderingOpts}) => renderingOpts.map(({name, link},k) =>
+const NavBarOptions = ({renderingOpts, onClick}) => renderingOpts.map(({name, link},k) =>
     <li className="nav-item" key={k}>
-        <Link className="nav-link" to={link} >{name}</Link>
+        <Link className="nav-link" to={link} onClick={onClick}>{name}</Link>
     </li>
 );
 
@@ -17,7 +17,7 @@ const Navbar = ({name = "Translation", Logo, options = [], where}) => {
 
         <div className={`collapse navbar-collapse ${mobileUser ? "show" : ""} navbar-fluid`} id="navsc">
             <ul className="navbar-nav mr-auto">
-                <NavBarOptions renderingOpts={options}/>
+                <NavBarOptions renderingOpts={options} onClick={() => setMobilUser(!mobileUser)}/>
             </ul>
         </div>
         <div>

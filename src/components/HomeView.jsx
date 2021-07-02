@@ -7,18 +7,20 @@ import { Navbar } from "./NavBar/Navbar.jsx";
 import { HomeLand } from "./Homeland/HomeLand.jsx";
 
 const navOptiones = [
-    {name:"Translator", link:"/Home/Translater", comp:HomePage},
-    {name:"About Dev",  link:"/About/About_Me", comp:About},
-    {name:"Contact",    link:"/About/Contact_Me", comp:Contact}
+    {name:"Translator", link:"/Home/Translater", comp:<HomePage/>},
+    {name:"About Dev",  link:"/About/About_Me", comp:<About/>},
+    {name:"Contact",    link:"/About/Contact_Me", comp:<Contact/>}
 ];
 
 const HomeView = () =>{
     return(
         <HashRouter>
             <div className="bg-secondary">
-                <Navbar where="/Home" options={navOptiones}/>
+                <div>
+                    <Navbar where="/Home" options={navOptiones}/>
+                </div>
                 <Switch>
-                    <Route path={"/Home"} exact={true}>{HomeLand}</Route>
+                    <Route path={"/Home"} exact={true}>{<HomeLand/>}</Route>
                     {navOptiones.map(({link, comp},key) => <Route key={key} path={link} exact={true}>{comp}</Route>)}
                 </Switch>
             </div>
